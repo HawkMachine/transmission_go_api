@@ -25,6 +25,6 @@ func main() {
 		log.Fatalf("ListAll error: %v", err)
 	}
 	for _, torrent := range torrents {
-		fmt.Printf("%s (%d) %s\n", torrent.Name, torrent.Id, torrent.Status)
+		fmt.Printf("%s (%d) %d %f %v\n", torrent.Name, torrent.Id, torrent.Status, torrent.PercentDone, torrent.IsFinished)
 	}
 }

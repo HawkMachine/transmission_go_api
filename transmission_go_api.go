@@ -43,86 +43,90 @@ func New(address, username, password string) (*Transmission, error) {
 }
 
 type File struct {
-	Name           string `json:" name,omitempty"`
-	BytesCompleted int    `json:" bytesCompleted,omitempty"`
-	Length         int    `json:" length,omitempty"`
+	Name           string `json:"name,omitempty"`
+	BytesCompleted int    `json:"bytesCompleted,omitempty"`
+	Length         int    `json:"length,omitempty"`
 }
 
 type FileStats struct {
-	BytesCompleted int  `json:" bytesCompleted,omitempty"`
-	Wanted         bool `json:" wanted,omitempty"`
-	Priority       int  `json:" priority,omitempty"`
+	BytesCompleted int  `json:"bytesCompleted,omitempty"`
+	Wanted         bool `json:"wanted,omitempty"`
+	Priority       int  `json:"priority,omitempty"`
+}
+
+type Peer struct {
+	Address string `json:"address,omitempty"`
 }
 
 type Torrent struct {
-	ActivityDate            int          `json:"activityDate"`
-	AddedDate               int          `json:"addedDate"`
-	BandwidthPriority       int          `json:"bandwidthPriority"`
-	Comment                 string       `json:"comment"`
-	CorruptEver             int          `json:"corruptEver"`
-	Creator                 string       `json:"creator"`
-	DateCreated             int          `json:"dateCreated"`
-	DesiredAvailable        int          `json:"desiredAvailable"`
-	DoneDate                int          `json:"doneDate"`
-	DownloadDir             string       `json:"downloadDir"`
-	DownloadedEver          int          `json:"downloadedEver"`
-	DownloadLimit           int          `json:"downloadLimit"`
-	DownloadLimited         bool         `json:"downloadLimited"`
-	Error                   int          `json:"error"`
-	ErrorString             string       `json:"errorString"`
-	Eta                     int          `json:"eta"`
-	EtaIdle                 int          `json:"etaIdle"`
-	Files                   []*File      `json:"files"`
-	FileStats               []*FileStats `json:"fileStats"`
-	HashString              string       `json:"hashString"`
-	HaveUnchecked           int          `json:"haveUnchecked"`
-	HaveValid               int          `json:"haveValid"`
-	HonorsSessionLimits     bool         `json:"honorsSessionLimits"`
-	Id                      int          `json:"id"`
-	IsFinished              bool         `json:"isFinished"`
-	IsPrivate               bool         `json:"isPrivate"`
-	IsStalled               bool         `json:"isStalled"`
-	LeftUntilDone           int          `json:"leftUntilDone"`
-	MagnetLink              string       `json:"magnetLink"`
-	ManualAnnounceTime      int          `json:"manualAnnounceTime"`
-	MaxConnectedPeers       int          `json:"maxConnectedPeers"`
-	MetadataPercentComplete float64      `json:"metadataPercentComplete"`
-	Name                    string       `json:"name"`
-	PeerLimit               int          `json:"peerLimit"`
-	Peers                   int          `json:"peers"`
-	PeersConnected          int          `json:"peersConnected"`
-	PeersFrom               int          `json:"peersFrom"`
-	PeersGettingFromUs      int          `json:"peersGettingFromUs"`
-	PeersSendingToUs        int          `json:"peersSendingToUs"`
-	PercentDone             float64      `json:"percentDone"`
-	Pieces                  string       `json:"pieces"`
-	PieceCount              int          `json:"pieceCount"`
-	PieceSize               int          `json:"pieceSize"`
-	Priorities              []int        `json:"priorities"`
-	QueuePosition           int          `json:"queuePosition"`
-	RateDownload            int          `json:"rateDownload"` // B/s
-	RateUpload              int          `json:"rateUpload"`   // B/s
-	RecheckProgress         float64      `json:"recheckProgress"`
-	SecondsDownloading      int          `json:"secondsDownloading"`
-	SecondsSeeding          int          `json:"secondsSeeding"`
-	SeedIdleLimit           int          `json:"seedIdleLimit"`
-	SeedIdleMode            int          `json:"seedIdleMode"`
-	SeedRatioLimit          float64      `json:"seedRatioLimit"`
-	SeedRatioMode           int          `json:"seedRatioMode"`
-	SizeWhenDone            int          `json:"sizeWhenDone"`
-	StartDate               int          `json:"startDate"`
-	Status                  int          `json:"status"`
-	Trackers                int          `json:"trackers"`
-	TrackerStats            int          `json:"trackerStats"`
-	TotalSize               int          `json:"totalSize"`
-	TorrentFile             string       `json:"torrentFile"`
-	UploadedEver            int          `json:"uploadedEver"`
-	UploadLimit             int          `json:"uploadLimit"`
-	UploadLimited           bool         `json:"uploadLimited"`
-	UploadRatio             float64      `json:"uploadRatio"`
-	Wanted                  int          `json:"wanted"`
-	Webseeds                int          `json:"webseeds"`
-	WebseedsSendingToUs     int          `json:"webseedsSendingToUs"`
+	ActivityDate            int          `json:"activityDate,omitempty"`
+	AddedDate               int          `json:"addedDate,omitempty"`
+	BandwidthPriority       int          `json:"bandwidthPriority,omitempty"`
+	Comment                 string       `json:"comment,omitempty"`
+	CorruptEver             int          `json:"corruptEver,omitempty"`
+	Creator                 string       `json:"creator,omitempty"`
+	DateCreated             int          `json:"dateCreated,omitempty"`
+	DesiredAvailable        int          `json:"desiredAvailable,omitempty"`
+	DoneDate                int          `json:"doneDate,omitempty"`
+	DownloadDir             string       `json:"downloadDir,omitempty"`
+	DownloadedEver          int          `json:"downloadedEver,omitempty"`
+	DownloadLimit           int          `json:"downloadLimit,omitempty"`
+	DownloadLimited         bool         `json:"downloadLimited,omitempty"`
+	Error                   int          `json:"error,omitempty"`
+	ErrorString             string       `json:"errorString,omitempty"`
+	Eta                     int          `json:"eta,omitempty"`
+	EtaIdle                 int          `json:"etaIdle,omitempty"`
+	Files                   []*File      `json:"files,omitempty"`
+	FileStats               []*FileStats `json:"fileStats,omitempty"`
+	HashString              string       `json:"hashString,omitempty"`
+	HaveUnchecked           int          `json:"haveUnchecked,omitempty"`
+	HaveValid               int          `json:"haveValid,omitempty"`
+	HonorsSessionLimits     bool         `json:"honorsSessionLimits,omitempty"`
+	Id                      int          `json:"id,omitempty"`
+	IsFinished              bool         `json:"isFinished,omitempty"`
+	IsPrivate               bool         `json:"isPrivate,omitempty"`
+	IsStalled               bool         `json:"isStalled,omitempty"`
+	LeftUntilDone           int          `json:"leftUntilDone,omitempty"`
+	MagnetLink              string       `json:"magnetLink,omitempty"`
+	ManualAnnounceTime      int          `json:"manualAnnounceTime,omitempty"`
+	MaxConnectedPeers       int          `json:"maxConnectedPeers,omitempty"`
+	MetadataPercentComplete float64      `json:"metadataPercentComplete,omitempty"`
+	Name                    string       `json:"name,omitempty"`
+	PeerLimit               int          `json:"peerLimit,omitempty"`
+	Peers                   []int        `json:"peers,omitempty"`
+	PeersConnected          int          `json:"peersConnected,omitempty"`
+	PeersFrom               int          `json:"peersFrom,omitempty"`
+	PeersGettingFromUs      int          `json:"peersGettingFromUs,omitempty"`
+	PeersSendingToUs        int          `json:"peersSendingToUs,omitempty"`
+	PercentDone             float64      `json:"percentDone,omitempty"`
+	Pieces                  string       `json:"pieces,omitempty"`
+	PieceCount              int          `json:"pieceCount,omitempty"`
+	PieceSize               int          `json:"pieceSize,omitempty"`
+	Priorities              []int        `json:"priorities,omitempty"`
+	QueuePosition           int          `json:"queuePosition,omitempty"`
+	RateDownload            int          `json:"rateDownload,omitempty"` // B/s
+	RateUpload              int          `json:"rateUpload,omitempty"`   // B/s
+	RecheckProgress         float64      `json:"recheckProgress,omitempty"`
+	SecondsDownloading      int          `json:"secondsDownloading,omitempty"`
+	SecondsSeeding          int          `json:"secondsSeeding,omitempty"`
+	SeedIdleLimit           int          `json:"seedIdleLimit,omitempty"`
+	SeedIdleMode            int          `json:"seedIdleMode,omitempty"`
+	SeedRatioLimit          float64      `json:"seedRatioLimit,omitempty"`
+	SeedRatioMode           int          `json:"seedRatioMode,omitempty"`
+	SizeWhenDone            int          `json:"sizeWhenDone,omitempty"`
+	StartDate               int          `json:"startDate,omitempty"`
+	Status                  int          `json:"status,omitempty"`
+	Trackers                int          `json:"trackers,omitempty"`
+	TrackerStats            int          `json:"trackerStats,omitempty"`
+	TotalSize               int          `json:"totalSize,omitempty"`
+	TorrentFile             string       `json:"torrentFile,omitempty"`
+	UploadedEver            int          `json:"uploadedEver,omitempty"`
+	UploadLimit             int          `json:"uploadLimit,omitempty"`
+	UploadLimited           bool         `json:"uploadLimited,omitempty"`
+	UploadRatio             float64      `json:"uploadRatio,omitempty"`
+	Wanted                  int          `json:"wanted,omitempty"`
+	Webseeds                int          `json:"webseeds,omitempty"`
+	WebseedsSendingToUs     int          `json:"webseedsSendingToUs,omitempty"`
 }
 
 type requestBase struct {
@@ -225,10 +229,85 @@ func (t *Transmission) ListAll() ([]*Torrent, error) {
 			Tag:    1,
 		},
 		Arguments: &getRequestPayload{
-			Fields: []string{"name", "id", "totalSize", "eta", "status"},
+			Fields: []string{
+				"name",
+				"id",
+				"totalSize",
+				"eta",
+				"status",
+				"percentDone",
+				"activityDate",
+				"addedDate",
+				"bandwidthPriority",
+				"comment",
+				"corruptEver",
+				"creator",
+				"dateCreated",
+				"desiredAvailable",
+				"doneDate",
+				"downloadDir",
+				"downloadedEver",
+				"downloadLimit",
+				"downloadLimited",
+				"error",
+				"errorString",
+				"eta",
+				"etaIdle",
+				"files",
+				"fileStats",
+				"hashString",
+				"haveUnchecked",
+				"haveValid",
+				"honorsSessionLimits",
+				"id",
+				"isFinished",
+				"isPrivate",
+				"isStalled",
+				"leftUntilDone",
+				"magnetLink",
+				"manualAnnounceTime",
+				"maxConnectedPeers",
+				"metadataPercentComplete",
+				"name",
+				"peerLimit",
+				//"peers",
+				//"peersConnected",
+				//"peersFrom",
+				//"peersGettingFromUs",
+				//"peersSendingToUs",
+				"percentDone",
+				"pieces",
+				"pieceCount",
+				"pieceSize",
+				//"priorities",
+				//"queuePosition",
+				"rateDownload",
+				"rateUpload",
+				"recheckProgress",
+				"secondsDownloading",
+				"secondsSeeding",
+				"seedIdleLimit",
+				"seedIdleMode",
+				"seedRatioLimit",
+				"seedRatioMode",
+				"sizeWhenDone",
+				"startDate",
+				"status",
+				//"trackers",
+				//"trackerStats",
+				"totalSize",
+				"torrentFile",
+				"uploadedEver",
+				"uploadLimit",
+				"uploadLimited",
+				"uploadRatio",
+				//"wanted",
+				//"webseeds",
+				"webseedsSendingToUs",
+			},
 		},
 	}
-	resp := getResponse{}
+	resp := &getResponse{}
 	err := t.doRPC(req, resp)
 	if err != nil {
 		return nil, err
